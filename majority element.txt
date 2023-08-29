@@ -1,0 +1,16 @@
+class Solution {
+    // Function to find the majority element in an array
+    public int majorityElement(int[] nums) {
+        // If there's only one element in the array, it is the majority element
+        if(nums.length == 1)
+            return nums[0];
+
+        // Sort the array in non-decreasing order
+        Arrays.sort(nums);
+
+        // The majority element will always be at the middle index if it exists
+        // Since the majority element occurs more than n/2 times, it will dominate other elements
+        // Return the element at the middle index
+        return nums[nums.length / 2];
+    }
+}
