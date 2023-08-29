@@ -1,0 +1,15 @@
+class Solution {
+    // Constants for the golden ratio and its negative
+    private static final double sqrt5 = Math.sqrt(5);
+    private static final double phi_n = (1.0 - sqrt5) / 2.0;
+    private static final double phi_p = (1.0 + sqrt5) / 2.0;
+
+    // Function to calculate the nth Fibonacci number using the golden ratio formula
+    public int fib(int n) {
+        // Using the formula (phi^n - (-phi)^-n) / sqrt(5) to calculate the nth Fibonacci number
+        double v = (Math.pow(phi_p, n) - Math.pow(phi_n, n)) / sqrt5;
+
+        // Convert the result to an integer and return
+        return (int) v;
+    }
+}
