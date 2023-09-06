@@ -1,0 +1,27 @@
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length; // Get the size of the matrix (assuming it's a square matrix).
+        
+        // Step 1: Reverse each column.
+        for(int i = 0; i < n; i++){
+            int a = 0; // Initialize a pointer at the first row.
+            int b = n-1; // Initialize a pointer at the last row.
+            while(a <= b){ // Swap elements from top and bottom until the pointers meet.
+               int temp = matrix[a][i]; // Store the value at the top.
+               matrix[a][i] = matrix[b][i]; // Replace the top value with the bottom value.
+               matrix[b][i] = temp; // Set the bottom value to the stored top value.
+               a++; // Move the top pointer down.
+               b--; // Move the bottom pointer up.
+            }
+        }
+           
+        // Step 2: Transpose the matrix.
+        for(int i = 0; i < n; i++){
+            for(int j = i+1; j < n; j++){
+                int temp = matrix[i][j]; // Store the value at position (i, j).
+                matrix[i][j] = matrix[j][i]; // Replace (i, j) with (j, i).
+                matrix[j][i] = temp; // Set (j, i) to the stored value.
+            }
+        }
+    }
+}
