@@ -1,0 +1,16 @@
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int i = 0, j = nums.length; // Initialize two pointers, i and j.
+        int[] sorted = new int[j--]; // Create an array to store the sorted squares, and decrement j.
+        int count = j; // Initialize a count variable to keep track of the current position in the sorted array.
+        
+        // Use a while loop to iterate through the input array from both ends (i and j).
+        while (i <= j) {
+            // Calculate the square of the values at indices i and j, then compare them.
+            // Assign the larger square to the sorted array at the current count position.
+            sorted[count--] = (nums[i] * nums[i] > nums[j] * nums[j]) ? nums[i] * nums[i++] : nums[j] * nums[j--];
+        }
+        
+        return sorted; // Return the sorted array of squares.
+    }
+}
